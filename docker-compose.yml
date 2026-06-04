@@ -34,8 +34,8 @@ services:
       db:
         condition: service_healthy
     ports:
-      - "${ODOO_PORT:-8069}:8069"
-      - "${ODOO_LONGPOLLING_PORT:-8072}:8072"
+      - "${ODOO_PORT:-8000}:8069"
+      - "${ODOO_LONGPOLLING_PORT:-8070}:8072"
     env_file:
       - .env
     environment:
