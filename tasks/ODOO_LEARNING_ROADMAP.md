@@ -232,12 +232,12 @@ smartbiz-erp/
 
 | Task | Command |
 |------|---------|
-| Start Odoo | `./odoo-bin -c config/odoo.conf` |
-| Install module | `./odoo-bin -c config/odoo.conf -i rental_management` |
-| Update module | `./odoo-bin -c config/odoo.conf -u rental_management` |
-| Run tests | `./odoo-bin -c config/odoo.conf -u rental_management --test-enable` |
+| Start Odoo | `./odoo-bin -c odoo.conf` |
+| Install module | `./odoo-bin -c odoo.conf -i rental_management` |
+| Update module | `./odoo-bin -c odoo.conf -u rental_management` |
+| Run tests | `./odoo-bin -c odoo.conf -u rental_management --test-enable` |
 | Scaffold module | `./odoo-bin scaffold rental_management custom_addons/` |
-| Create database | `./odoo-bin -c config/odoo.conf -d smartbiz --init base` |
+| Create database | `./odoo-bin -c odoo.conf -d smartbiz --init base` |
 
 ---
 
