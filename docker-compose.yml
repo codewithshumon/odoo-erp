@@ -22,34 +22,34 @@ services:
     networks:
       - odoo-network
 
-  odoo:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: odoo_app
-    restart: unless-stopped
-    depends_on:
-      db:
-        condition: service_healthy
-    ports:
-      - "${ODOO_PORT:-8000}:8069"
-      - "${ODOO_LONGPOLLING_PORT:-8070}:8072"
-    env_file:
-      - .env
-    environment:
-      - HOST=db
-      - USER=${DB_USER}
-      - PASSWORD=${DB_PASSWORD}
-      - PORT=${DB_PORT:-5432}
-    volumes:
-      - .:/opt/odoo
-      - ./custom_addons:/mnt/extra-addons
-      - ./config/odoo.conf:/etc/odoo/odoo.conf:ro
-      - odoo-filestore:/var/lib/odoo/.local/share/Odoo
-    networks:
-      - odoo-network
-    command: >
-      sh -c "./odoo-bin -c /etc/odoo/odoo.conf"
+  # odoo:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #   container_name: odoo_app
+  #   restart: unless-stopped
+  #   depends_on:
+  #     db:
+  #       condition: service_healthy
+  #   ports:
+  #     - "${ODOO_PORT:-8000}:8069"
+  #     - "${ODOO_LONGPOLLING_PORT:-8070}:8072"
+  #   env_file:
+  #     - .env
+  #   environment:
+  #     - HOST=db
+  #     - USER=${DB_USER}
+  #     - PASSWORD=${DB_PASSWORD}
+  #     - PORT=${DB_PORT:-5432}
+  #   volumes:
+  #     - .:/opt/odoo
+  #     - ./custom_addons:/mnt/extra-addons
+  #     - ./config/odoo.conf:/etc/odoo/odoo.conf:ro
+  #     - odoo-filestore:/var/lib/odoo/.local/share/Odoo
+  #   networks:
+  #     - odoo-network
+  #   command: >
+  #     sh -c "./odoo-bin -c /etc/odoo/odoo.conf"
 
   pgadmin:
     image: dpage/pgadmin4:latest
